@@ -1,0 +1,100 @@
+/* src/App.css */
+
+.app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  min-width: 100vh;
+  color: #fff;
+  transition: background 1s ease;
+  position: relative; /* Enable positioning for pseudo-elements */
+  overflow: hidden;
+  padding: 20px; /* Added consistent padding */
+}
+
+.app.day {
+  background: linear-gradient(
+    to top,
+    #e8aa37,
+    #dec84c,
+    #ef725b
+  ); /* Orange to yellow to red */
+}
+
+.app.night {
+  background: linear-gradient(
+    to top,
+    #1e003d,
+    /* Dark purple */ #2e0061,
+    /* Purple */ #040c14 /* Dark blue/black */
+  ); /* Blue, Purple, and Black gradient for nighttime */
+}
+
+/* Pink gradient for initial, no-search background */
+.app.pink-gradient {
+  background: linear-gradient(
+    to top,
+    #ffafbd,
+    #ffc3a0
+  ); /* Light pink gradient */
+}
+
+.app.night::before,
+.app.night::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none; /* Make sure stars are not clickable */
+  background: radial-gradient(
+      circle,
+      rgba(249, 249, 246, 0.8) 0px,
+      transparent 2px
+    )
+    center center / 50px 50px;
+  opacity: 0.3;
+  animation: sparkle 3s infinite alternate ease-in-out;
+  background-position: random; /* Randomize position for scattered effect */
+}
+
+@keyframes sparkle {
+  0% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0.1;
+    transform: scale(1);
+  }
+}
+
+/* Input and button styles */
+input {
+  padding: 10px;
+  border-radius: 10px;
+  margin: 20px 0;
+  border: none;
+  outline: none;
+}
+
+button {
+  padding: 10px 20px;
+  border-radius: 5px;
+  background-color: #333;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background-color: #555;
+}
